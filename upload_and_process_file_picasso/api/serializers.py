@@ -10,5 +10,5 @@ class FileSerializer(serializers.ModelSerializer):
             'id',
             'file',
             'uploaded_at',
-            'processed'
+            'processed',
         )

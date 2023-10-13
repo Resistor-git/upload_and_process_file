@@ -1,2 +1,4 @@
 django==4.2.6
 djangorestframework==3.14.0
+celery==5.3.4
+redis==5.0.1

@@ -21,6 +21,7 @@ services:
   celery:
     build:
       context: ./upload_and_process_file_picasso
+    command: celery --app=upload_and_process_file_picasso worker -l INFO
     volumes:
       - ./upload_and_process_file_picasso:/usr/src/app/
     env_file:

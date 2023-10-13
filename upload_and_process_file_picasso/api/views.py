@@ -4,6 +4,7 @@ from rest_framework import mixins
 
 from .models import File
 from .serializers import FileSerializer
+from .tasks import change_processed
 
 
 # class FileCreateList(generics.ListCreateAPIView):
@@ -14,12 +15,17 @@ from .serializers import FileSerializer
 #     queryset = File.objects.all()
 #     serializer_class = FileSerializer
 
+
 class FileCreate(generics.CreateAPIView):
     """
     POST - creates a File object
     """
     queryset = File.objects.all()
     serializer_class = FileSerializer
+
+    def form_valid(self, form):
+        print('!!!!!!!!!!!!', flush=True)
+        return super().form_valid(form)
 
 
 class FileList(generics.ListAPIView):

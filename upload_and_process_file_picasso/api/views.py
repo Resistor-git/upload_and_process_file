@@ -4,7 +4,7 @@ from rest_framework import mixins
 
 from .models import File
 from .serializers import FileSerializer
-from .tasks import change_processed
+from .tasks import process
 
 
 class FileCreate(generics.CreateAPIView):
@@ -17,7 +17,7 @@ class FileCreate(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         file_obj = serializer.save()
-        change_processed.delay(file_obj.id)
+        process.delay(file_obj.id)
 
 
 class FileList(generics.ListAPIView):

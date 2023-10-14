@@ -5,7 +5,7 @@ from .models import File
 
 
 @shared_task
-def change_processed(file_obj_id):
+def process(file_obj_id):
     """
     Changes field 'processed' to True in
     newly created File objects.
